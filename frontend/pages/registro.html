@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Crea tu cuenta de TracPremium como dueño de nave, cargador o transportista.">
+  <link rel="canonical" href="https://cudugnellom.github.io/tracpremium-web/pages/registro.html">
+  <link rel="icon" href="../img/icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Crear cuenta | TracPremium</title>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Principal">
+      <a class="brand" href="../index.html">
+        <img src="../img/icon.png" alt="" width="34" height="34">
+        TracPremium
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Inicio</a>
+        <a href="../index.html#roles">Para quién es</a>
+        <a href="../index.html#legal">Legal</a>
+      </div>
+      <div class="nav-auth">
+        <a class="btn btn-ghost" href="./login.html">Iniciar sesión</a>
+        <a class="btn btn-primary" aria-current="page" href="./registro.html">Crear cuenta</a>
+      </div>
+      <button class="nav-burger" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+    </nav>
+  </header>
+
+  <main class="auth-shell">
+    <section class="auth-visual" aria-hidden="true">
+      <h2>Únete a la red TracPremium</h2>
+      <p>Dueños de nave, cargadores y transportistas gestionando cargas en una sola plataforma.</p>
+    </section>
+    <section class="auth-main">
+      <div class="auth-card">
+        <a class="brand" href="../index.html">
+          <img src="../img/icon.png" alt="" width="30" height="30">
+          TracPremium
+        </a>
+        <h1>Crea tu cuenta</h1>
+        <p class="lead-auth">Elige tu rol y completa tus datos.</p>
+
+        <div class="form-banner" id="registerBanner" role="status">
+          <span id="registerBannerText"></span>
+          <a href="#" id="registerContinueLink">Continuar a verificación de cuenta</a>
+        </div>
+
+        <form id="registerForm" novalidate>
+          <fieldset style="border:0;padding:0;margin:0 0 1.1rem">
+            <legend class="form-field label" style="font-size:.88rem;font-weight:700;margin-bottom:.4rem">Tu rol</legend>
+            <div class="role-picker">
+              <label class="role-option">
+                <input type="radio" name="rol" value="nave" checked>
+                <span>Dueño de nave</span>
+              </label>
+              <label class="role-option">
+                <input type="radio" name="rol" value="cargador">
+                <span>Cargador</span>
+              </label>
+              <label class="role-option">
+                <input type="radio" name="rol" value="transportista">
+                <span>Transportista</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="given-name" required placeholder="Tu nombre">
+          </div>
+          <div class="form-field">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" autocomplete="family-name" required placeholder="Tu apellido">
+          </div>
+
+          <div class="form-field">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="tucorreo@ejemplo.com">
+          </div>
+          <div class="form-field">
+            <label for="email2">Confirmar correo electrónico</label>
+            <input type="email" id="email2" name="email2" autocomplete="email" required placeholder="Repite tu correo electrónico">
+          </div>
+
+          <div class="form-field">
+            <label for="telefono">Teléfono <span class="form-optional">(opcional)</span></label>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="+54 9 11 1234 5678">
+            <p class="form-hint">Incluí el código de país, por ejemplo +54 9 11 1234 5678.</p>
+          </div>
+
+          <div class="form-field">
+            <label for="password">Contraseña</label>
+            <div class="password-field">
+              <input type="password" id="password" name="password" autocomplete="new-password" required placeholder="••••••••">
+              <button type="button" class="password-toggle" data-target="password" aria-label="Mostrar contraseña">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <p class="form-hint">Mínimo 8 caracteres, con mayúscula, minúscula y número.</p>
+          </div>
+          <div class="form-field">
+            <label for="password2">Confirmar contraseña</label>
+            <div class="password-field">
+              <input type="password" id="password2" name="password2" autocomplete="new-password" required placeholder="Repite tu contraseña">
+              <button type="button" class="password-toggle" data-target="password2" aria-label="Mostrar contraseña">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="notice-card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-4.5 7-11V5l-7-3-7 3v6c0 6.5 7 11 7 11Z"/><path d="m9 12 2 2 4-4"/></svg>
+            <p>La selfie y la documentación (licencia, vehículo o empresa según tu rol) se cargan después de verificar tu email.</p>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">Acepto los <a href="./TerminosYCondiciones.html">Términos y condiciones</a> y la <a href="./PoliticasDePrivacidad.html">Política de privacidad</a>.</label>
+          </div>
+
+          <p class="form-error" id="registerError" role="alert"></p>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Crear cuenta</button>
+        </form>
+
+        <p class="form-note">¿Ya tienes cuenta? <a href="./login.html">Inicia sesión</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/site.js" defer></script>
+  <script src="../js/auth-api.js"></script>
+  <script>
+    (function () {
+      var STRONG_PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,100}$/;
+      var PHONE_REGEX = /^\+?[0-9\s-]{7,20}$/;
+      var eyeIcon = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/>';
+      var eyeOffIcon = '<path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a20.3 20.3 0 0 1 5.06-5.94M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 8 11 8a20.3 20.3 0 0 1-2.16 3.19M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="M1 1l22 22"/>';
+
+      document.querySelectorAll(".password-toggle").forEach(function (button) {
+        var target = document.getElementById(button.dataset.target);
+        var svg = button.querySelector("svg");
+        if (!target || !svg) return;
+        button.addEventListener("click", function () {
+          var show = target.type === "password";
+          target.type = show ? "text" : "password";
+          svg.innerHTML = show ? eyeOffIcon : eyeIcon;
+          button.setAttribute("aria-label", show ? "Ocultar contraseña" : "Mostrar contraseña");
+        });
+      });
+
+      var form = document.getElementById("registerForm");
+      var errorBox = document.getElementById("registerError");
+      var banner = document.getElementById("registerBanner");
+      var bannerText = document.getElementById("registerBannerText");
+      var continueLink = document.getElementById("registerContinueLink");
+      var submitButton = form.querySelector("button[type=submit]");
+      var submitButtonDefaultText = submitButton.textContent;
+
+      function showError(message) {
+        banner.classList.remove("is-visible");
+        errorBox.textContent = message;
+        errorBox.classList.add("is-visible");
+      }
+
+      function showSuccess(message, email) {
+        errorBox.classList.remove("is-visible");
+        bannerText.textContent = message;
+        continueLink.href = "./verificar.html?email=" + encodeURIComponent(email);
+        banner.classList.add("is-visible");
+      }
+
+      function setLoading(isLoading) {
+        submitButton.disabled = isLoading;
+        submitButton.textContent = isLoading ? "Creando cuenta…" : submitButtonDefaultText;
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        errorBox.classList.remove("is-visible");
+        banner.classList.remove("is-visible");
+
+        var rol = form.rol.value;
+        var nombre = form.nombre.value.trim();
+        var apellido = form.apellido.value.trim();
+        var email = form.email.value.trim().toLowerCase();
+        var email2 = form.email2.value.trim().toLowerCase();
+        var telefono = form.telefono.value.trim();
+        var password = form.password.value;
+        var password2 = form.password2.value;
+
+        if (!nombre || !apellido || !email || !email2 || !password || !password2) {
+          showError("Completá todos los campos obligatorios.");
+          return;
+        }
+        if (email !== email2) {
+          showError("Los correos electrónicos no coinciden.");
+          return;
+        }
+        if (telefono && !PHONE_REGEX.test(telefono)) {
+          showError("Ingresá un teléfono válido, incluyendo el código de país.");
+          return;
+        }
+        if (password !== password2) {
+          showError("Las contraseñas no coinciden.");
+          return;
+        }
+        if (!STRONG_PASSWORD_REGEX.test(password)) {
+          showError("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.");
+          return;
+        }
+        if (!form.terms.checked) {
+          showError("Debés aceptar los Términos y condiciones para continuar.");
+          return;
+        }
+
+        var payload = {
+          nombre: nombre,
+          apellido: apellido,
+          email: email,
+          confirmEmail: email2,
+          password: password,
+          confirmPassword: password2,
+        };
+        if (telefono) {
+          payload.telefono = telefono;
+        }
+
+        var request;
+        if (rol === "nave") {
+          request = TracPremiumAuthAPI.registerNave(payload);
+        } else if (rol === "transportista") {
+          request = TracPremiumAuthAPI.registerTransportista(payload);
+        } else {
+          request = TracPremiumAuthAPI.registerClient(payload);
+        }
+
+        setLoading(true);
+        request
+          .then(function (response) {
+            showSuccess(response.message || "Cuenta creada. Revisá tu correo para verificarla.", email);
+            form.reset();
+          })
+          .catch(function (error) {
+            showError(error.message);
+          })
+          .finally(function () {
+            setLoading(false);
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

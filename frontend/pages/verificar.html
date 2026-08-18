@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Verifica el código enviado a tu correo para activar tu cuenta de TracPremium.">
+  <link rel="canonical" href="https://cudugnellom.github.io/tracpremium-web/pages/verificar.html">
+  <link rel="icon" href="../img/icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Verificar cuenta | TracPremium</title>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Principal">
+      <a class="brand" href="../index.html">
+        <img src="../img/icon.png" alt="" width="34" height="34">
+        TracPremium
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Inicio</a>
+        <a href="../index.html#roles">Para quién es</a>
+        <a href="../index.html#legal">Legal</a>
+      </div>
+      <div class="nav-auth">
+        <a class="btn btn-ghost" href="./login.html">Iniciar sesión</a>
+        <a class="btn btn-primary" href="./registro.html">Crear cuenta</a>
+      </div>
+      <button class="nav-burger" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+    </nav>
+  </header>
+
+  <main class="auth-shell">
+    <section class="auth-visual" aria-hidden="true">
+      <h2>Ya casi estás</h2>
+      <p>Te enviamos un código de 6 dígitos para confirmar tu cuenta y activar tu perfil en TracPremium.</p>
+    </section>
+    <section class="auth-main">
+      <div class="auth-card">
+        <a class="brand" href="../index.html">
+          <img src="../img/icon.png" alt="" width="30" height="30">
+          TracPremium
+        </a>
+        <h1>Verifica tu cuenta</h1>
+        <p class="lead-auth">Ingresá el código de 6 dígitos que enviamos a tu correo electrónico.</p>
+
+        <div class="form-banner" id="verifyBanner" role="status"></div>
+
+        <form id="verifyForm" novalidate>
+          <div class="form-field">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="tucorreo@ejemplo.com">
+          </div>
+
+          <div class="form-field">
+            <label for="code">Código de verificación</label>
+            <input type="text" id="code" name="code" class="code-input" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required placeholder="000000">
+            <p class="form-hint">Revisá tu bandeja de entrada (y la carpeta de spam).</p>
+          </div>
+
+          <p class="form-error" id="verifyError" role="alert"></p>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Verificar cuenta</button>
+        </form>
+
+        <div class="resend-row">
+          <p>¿No recibiste el código?</p>
+          <button type="button" id="resendBtn">Reenviar código</button>
+        </div>
+
+        <p class="form-note">¿Ya verificaste tu cuenta? <a href="./login.html">Inicia sesión</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/site.js" defer></script>
+  <script src="../js/auth-api.js"></script>
+  <script>
+    (function () {
+      var emailInput = document.getElementById("email");
+      var params = new URLSearchParams(window.location.search);
+      var emailFromUrl = (params.get("email") || "").trim();
+      if (emailFromUrl) {
+        emailInput.value = emailFromUrl;
+        emailInput.readOnly = true;
+      }
+
+      var codeInput = document.getElementById("code");
+      codeInput.addEventListener("input", function () {
+        codeInput.value = codeInput.value.replace(/\D/g, "").slice(0, 6);
+      });
+
+      var form = document.getElementById("verifyForm");
+      var errorBox = document.getElementById("verifyError");
+      var banner = document.getElementById("verifyBanner");
+      var submitButton = form.querySelector("button[type=submit]");
+      var submitButtonDefaultText = submitButton.textContent;
+
+      function showError(message) {
+        banner.classList.remove("is-visible");
+        banner.innerHTML = "";
+        errorBox.textContent = message;
+        errorBox.classList.add("is-visible");
+      }
+
+      function showSuccess(message) {
+        errorBox.classList.remove("is-visible");
+        banner.innerHTML = "";
+        banner.appendChild(document.createTextNode(message));
+        var loginLink = document.createElement("a");
+        loginLink.href = "./login.html";
+        loginLink.textContent = "Ir a iniciar sesión";
+        banner.appendChild(loginLink);
+        banner.classList.add("is-visible");
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        errorBox.classList.remove("is-visible");
+        banner.classList.remove("is-visible");
+
+        var email = emailInput.value.trim();
+        var code = codeInput.value.trim();
+
+        if (!email) {
+          showError("Ingresá el correo electrónico asociado a tu cuenta.");
+          return;
+        }
+        if (code.length !== 6) {
+          showError("El código debe tener 6 dígitos.");
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Verificando…";
+        TracPremiumAuthAPI.verifyEmail(email, code)
+          .then(function (response) {
+            showSuccess(response.message || "Email verificado correctamente.");
+          })
+          .catch(function (error) {
+            showError(error.message);
+          })
+          .finally(function () {
+            submitButton.disabled = false;
+            submitButton.textContent = submitButtonDefaultText;
+          });
+      });
+
+      var resendBtn = document.getElementById("resendBtn");
+      var timer = 0;
+      var interval = null;
+      var resendBtnDefaultText = resendBtn.textContent;
+
+      function tick() {
+        timer -= 1;
+        if (timer <= 0) {
+          clearInterval(interval);
+          interval = null;
+          resendBtn.disabled = false;
+          resendBtn.textContent = resendBtnDefaultText;
+        } else {
+          resendBtn.textContent = "Reenviar en " + timer + "s";
+        }
+      }
+
+      resendBtn.addEventListener("click", function () {
+        if (interval) return;
+
+        var email = emailInput.value.trim();
+        if (!email) {
+          showError("Ingresá el correo electrónico asociado a tu cuenta.");
+          return;
+        }
+
+        errorBox.classList.remove("is-visible");
+        banner.classList.remove("is-visible");
+        resendBtn.disabled = true;
+        resendBtn.textContent = "Enviando…";
+
+        TracPremiumAuthAPI.resendCode(email)
+          .then(function (response) {
+            banner.innerHTML = "";
+            banner.appendChild(document.createTextNode(response.message || "Código reenviado."));
+            banner.classList.add("is-visible");
+
+            timer = 60;
+            resendBtn.textContent = "Reenviar en " + timer + "s";
+            interval = setInterval(tick, 1000);
+          })
+          .catch(function (error) {
+            showError(error.message);
+            resendBtn.disabled = false;
+            resendBtn.textContent = resendBtnDefaultText;
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

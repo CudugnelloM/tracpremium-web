@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inicia sesión en TracPremium.">
+  <link rel="canonical" href="https://cudugnellom.github.io/tracpremium-web/pages/login.html">
+  <link rel="icon" href="../img/icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Iniciar sesión | TracPremium</title>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Principal">
+      <a class="brand" href="../index.html">
+        <img src="../img/icon.png" alt="" width="34" height="34">
+        TracPremium
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Inicio</a>
+        <a href="../index.html#roles">Para quién es</a>
+        <a href="../index.html#legal">Legal</a>
+      </div>
+      <div class="nav-auth">
+        <a class="btn btn-ghost" aria-current="page" href="./login.html">Iniciar sesión</a>
+        <a class="btn btn-primary" href="./registro.html">Crear cuenta</a>
+      </div>
+      <button class="nav-burger" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+    </nav>
+  </header>
+
+  <main class="auth-shell">
+    <section class="auth-visual" aria-hidden="true">
+      <h2>Gestiona tus cargas desde cualquier lugar</h2>
+      <p>Accede a tu panel de dueño de nave, cargador o transportista y sigue cada envío en tiempo real.</p>
+    </section>
+    <section class="auth-main">
+      <div class="auth-card">
+        <a class="brand" href="../index.html">
+          <img src="../img/icon.png" alt="" width="30" height="30">
+          TracPremium
+        </a>
+        <h1>Inicia sesión</h1>
+        <p class="lead-auth">Introduce tus datos para acceder a tu cuenta.</p>
+
+        <div class="form-banner" id="loginBanner" role="status">El acceso web estará disponible próximamente. Mientras tanto, usa la app de TracPremium.</div>
+
+        <form id="loginForm" novalidate>
+          <div class="form-field">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="tucorreo@ejemplo.com">
+          </div>
+          <div class="form-field">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" autocomplete="current-password" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Iniciar sesión</button>
+        </form>
+
+        <p class="form-note">¿No tienes cuenta? <a href="./registro.html">Regístrate</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/site.js" defer></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("loginBanner").classList.add("is-visible");
+    });
+  </script>
+</body>
+</html>

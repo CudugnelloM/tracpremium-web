@@ -1,61 +1,219 @@
-<!DOCTYPE html> 
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TracPremium</title>
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TracPremium conecta a dueños de nave, cargadores y transportistas en una sola plataforma para gestionar y seguir cargas en tiempo real.">
+  <link rel="canonical" href="https://cudugnellom.github.io/tracpremium-web/">
+  <link rel="icon" href="./img/icon.png">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>TracPremium | Gestión y seguimiento de cargas</title>
 </head>
-
-<body class="index">
-    <header>
-    <h1>TracPremium</h1>
-    
-    
-    <nav class="nav">
-        <ul class="nav-menu" id="nav-menu">
-            <li><a href="./index.html">Inicio</a></li>
-            <li><a href="./pages/PoliticasDePrivacidad.html">Política de privacidad</a></li>
-            <li><a href="./pages/EliminacionDeCuenta.html">Eliminar cuenta</a></li>
-            
-        </ul>
-        <ul class="nav-menu-right">
-            <li><a href="#">Iniciar sesión</a></li>
-            <li><a href="#">Registrarse</a></li>
-            <!--<li><a href="#"><Label>Idioma</Label></a>
-                <ul>
-                    <li><a href="#">Español</a></li>
-                    <li><a href="#">English</a></li>
-                    <li><a href="#">Français</a></li>
-                    <li><a href="#">Deutsch</a></li>
-                    <li><a href="#">Português</a></li>
-                    <li><a href="#">Italiano</a></li>
-                    <li><a href="#">Polski</a></li>
-                    <li><a href="#">Nederlands</a></li>
-                    <li><a href="#">Русский</a></li>
-                    <li><a href="#">简体中文</a></li>
-                    
-                </ul>
-            </li>-->
-            <button class="burger-btn" data-target="nav-menu"></button>
-            
-        </ul>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Principal">
+      <a class="brand" href="./index.html">
+        <img src="./img/icon.png" alt="" width="34" height="34">
+        TracPremium
+      </a>
+      <div class="nav-links">
+        <a aria-current="page" href="./index.html">Inicio</a>
+        <a href="#roles">Para quién es</a>
+        <a href="#funciones">Funciones</a>
+        <a href="#legal">Legal</a>
+      </div>
+      <div class="nav-auth">
+        <a class="btn btn-ghost" href="./pages/login.html">Iniciar sesión</a>
+        <a class="btn btn-primary" href="./pages/registro.html">Crear cuenta</a>
+      </div>
+      <button class="nav-burger" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
     </nav>
-</header>
-    <main class="container">
-       
+  </header>
 
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">TracPremium</span>
+        <h1>Control total de tus <em>cargas y transportes</em>, en un solo lugar</h1>
+        <p class="lead-hero">La plataforma que conecta a dueños de nave, cargadores y transportistas para gestionar cargas, rutas y documentación de forma simple y profesional.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="./pages/registro.html">Crear cuenta gratis</a>
+          <a class="btn btn-ghost btn-lg" href="./pages/login.html">Iniciar sesión</a>
+        </div>
+      </div>
+    </section>
 
+    <section class="band" id="roles">
+      <div class="home-shell">
+        <div class="section-head">
+          <span class="eyebrow" style="color:var(--gold-700)">Para quién es</span>
+          <h2>Una plataforma para los tres pilares del transporte</h2>
+          <p>Cada rol tiene sus propias herramientas dentro de TracPremium, pensadas para su forma de trabajar.</p>
+        </div>
+        <div class="roles-grid">
+          
+          <article class="role-card">
+            <a href="./pages/registro.html">
+            <div class="role-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11"/><path d="M9 21v-7h6v7"/></svg>
+            </div>
+            
+              <h3>Dueño de nave</h3>
+            </a>
+            <p>Administra tu almacén, controla la disponibilidad de espacio y coordina la entrada y salida de mercancía.</p>
+          </article>
+          <article class="role-card">
+            <a href="./pages/registro.html">
+            <div class="role-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+            </div>
+              <h3>Cargador</h3>
+            </a>
+            <p>Publica tus cargas, encuentra transportistas verificados y sigue cada envío de principio a fin.</p>
+          </article>
+          <article class="role-card">
+            <a href="./pages/registro.html">
+            <div class="role-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17V7a1 1 0 0 1 1-1h10v11"/><path d="M14 10h4l3 3v4h-7"/><circle cx="7.5" cy="17.5" r="1.7"/><circle cx="17.5" cy="17.5" r="1.7"/></svg>
+            </div>
+            
+              <h3>Transportista</h3>
+            </a>
+            <p>Recibe cargas disponibles, gestiona tus rutas y mantén tu historial y documentación al día.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    </main>
-<footer>
-    <p>&copy; 2026. All rights reserved.</p>
+    <section class="band band-dark" id="funciones">
+      <div class="home-shell">
+        <div class="section-head">
+          <span class="eyebrow">Funciones</span>
+          <h2>Todo lo que necesitas para operar</h2>
+          <p>Herramientas pensadas para el día a día del transporte de cargas.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.1 7-12A7 7 0 0 0 5 10c0 5.9 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <h3>Seguimiento en tiempo real</h3>
+            <p>Visualiza el estado y la ubicación de cada carga mientras está en ruta.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>
+            </div>
+            <h3>Gestión centralizada</h3>
+            <p>Cargas, naves y transportistas organizados en un mismo panel.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Red de confianza</h3>
+            <p>Conecta con transportistas y cargadores dentro de la comunidad TracPremium.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            </div>
+            <h3>Datos protegidos</h3>
+            <p>Tu información se gestiona conforme a nuestra política de privacidad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</footer>  
+    <section class="band">
+      <div class="home-shell">
+        <div class="cta-banner">
+          <span class="eyebrow">Empieza hoy</span>
+          <h2>Únete a TracPremium</h2>
+          <p>Crea tu cuenta como dueño de nave, cargador o transportista y empieza a gestionar tus cargas de forma más simple.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="./pages/registro.html">Crear cuenta gratis</a>
+            <a class="btn btn-ghost btn-lg" href="./pages/login.html">Ya tengo cuenta</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script src="./js/menu.js"></script>
-</body> 
+    <section class="band" id="legal" aria-labelledby="docs-es">
+      <div class="home-shell">
+        <div class="section-head">
+          <span class="eyebrow" style="color:var(--gold-700)">Documentación</span>
+          <h2 id="docs-es">Información legal</h2>
+          <p>Consulta las condiciones de uso, la política de privacidad y el procedimiento público para eliminar una cuenta.</p>
+        </div>
+        <div class="document-grid">
+          <a class="document-card" href="./pages/TerminosYCondiciones.html">
+            <span class="eyebrow">Términos y condiciones</span>
+            <strong>Términos y Condiciones de Uso de TracPremium</strong>
+            <span>Términos y condiciones de uso profesional de la aplicación y servicios TracPremium.</span>
+          </a>
+          <a class="document-card" href="./pages/PoliticasDePrivacidad.html">
+            <span class="eyebrow">Política de privacidad</span>
+            <strong>Política de Privacidad de TracPremium</strong>
+            <span>Política de privacidad de la aplicación, web y servicios de TracPremium.</span>
+          </a>
+          <a class="document-card" href="./pages/EliminacionDeCuenta.html">
+            <span class="eyebrow">Eliminar cuenta</span>
+            <strong>Política de Eliminación de Cuenta</strong>
+            <span>Procedimiento público para solicitar la eliminación de una cuenta de TracPremium y sus datos asociados.</span>
+          </a>
+        </div>
+        <div class="document-tools" style="margin-top:2.5rem">
+          <span lang="en">Looking for the English legal documents?</span>
+          <a class="language-switch" hreflang="en" lang="en" href="./pages/TermsAndConditions.html">English</a>
+        </div>
+      </div>
+    </section>
 
+    <section class="band" lang="en" aria-labelledby="docs-en" style="padding-top:0">
+      <div class="home-shell">
+        <div class="section-head">
+          <h2 id="docs-en">Legal information</h2>
+          <p>Read the terms of use, privacy policy and public procedure for deleting an account and its associated data.</p>
+        </div>
+        <div class="document-grid">
+          <a class="document-card" href="./pages/TermsAndConditions.html">
+            <span class="eyebrow">Terms and Conditions</span>
+            <strong>TracPremium Terms and Conditions of Use</strong>
+            <span>Terms and conditions for professional use of the TracPremium app and services.</span>
+          </a>
+          <a class="document-card" href="./pages/PrivacyPolicy.html">
+            <span class="eyebrow">Privacy Policy</span>
+            <strong>TracPremium Privacy Policy</strong>
+            <span>Privacy policy for the TracPremium app, website and services.</span>
+          </a>
+          <a class="document-card" href="./pages/AccountDeletion.html">
+            <span class="eyebrow">Delete account</span>
+            <strong>Account Deletion Policy</strong>
+            <span>Public procedure to request deletion of a TracPremium account and its associated data.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="home-shell">
+      <a class="brand" href="./index.html">
+        <img src="./img/icon.png" alt="" width="28" height="28">
+        TracPremium
+      </a>
+      <div class="footer-links">
+        <a href="./pages/TerminosYCondiciones.html">Términos</a>
+        <a href="./pages/PoliticasDePrivacidad.html">Privacidad</a>
+        <a href="./pages/EliminacionDeCuenta.html">Eliminar cuenta</a>
+        <a href="./pages/login.html">Iniciar sesión</a>
+        <a href="./pages/registro.html">Crear cuenta</a>
+      </div>
+      <p>TracPremium · Responsable: Andrés Cudugnello · España · admin@tracpremium.com</p>
+    </div>
+  </footer>
 
+  <script src="./js/site.js" defer></script>
+</body>
 </html>
