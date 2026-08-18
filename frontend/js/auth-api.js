@@ -1,5 +1,8 @@
 (function (global) {
-  var API_BASE_URL = "https://api.tracpremium.com/api";
+  // TODO: volver a "https://api.tracpremium.com/api" cuando el dominio custom
+  // esté resuelto (hoy falla el handshake TLS a nivel de dominio, no de CORS).
+  var API_BASE_URL =
+    "https://tracpremium-backend-production-970653718991.europe-southwest1.run.app/api";
 
   function getErrorMessage(data, fallback) {
     return (
